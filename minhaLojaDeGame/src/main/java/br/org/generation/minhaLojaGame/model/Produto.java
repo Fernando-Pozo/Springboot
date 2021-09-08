@@ -54,4 +54,12 @@ public class Produto {
 	public void setPreco(double preco) {
 		this.preco = preco;
 	}
+	public Produto getProduto() {
+		return produto;
+	}
+
+	public void setProduto(Produto produto) {
+		this.produto = produto;
+	}
+
 }

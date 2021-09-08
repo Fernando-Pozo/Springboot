@@ -25,26 +25,27 @@ public class CategoriaController {
 
 	@Autowired
 	private CategoriaRepository categoriaRepository;
-	
+
 	@GetMapping
-	public ResponseEntity<List<Categoria>> getAll(){
+	public ResponseEntity<List<Categoria>> getAll() {
 		return ResponseEntity.ok(categoriaRepository.findAll());
 	}
+
 	@GetMapping("/descricao/{descricao}")
-	public ResponseEntity<List<Categoria>> getByDescricao(@PathVariable String descricao){
+	public ResponseEntity<List<Categoria>> getByDescricao(@PathVariable String descricao) {
 		return ResponseEntity.ok(categoriaRepository.findAllByDescricaoContainingIgnoreCase(descricao));
 	}
-	
+
 	@PostMapping
-	public ResponseEntity<Categoria> postTema(@RequestBody Categoria categoria){
+	public ResponseEntity<Categoria> postTema(@RequestBody Categoria categoria) {
 		return ResponseEntity.status(HttpStatus.CREATED).body(categoriaRepository.save(categoria));
 	}
-	
+
 	@PutMapping
-	public ResponseEntity<Categoria> putTema(@RequestBody Categoria categoria){
+	public ResponseEntity<Categoria> putTema(@RequestBody Categoria categoria) {
 		return ResponseEntity.status(HttpStatus.OK).body(categoriaRepository.save(categoria));
 	}
-	
+
 	@DeleteMapping("/{id}")
 	public void deleteCategoria(@PathVariable long id) {
 		categoriaRepository.deleteById(id);
